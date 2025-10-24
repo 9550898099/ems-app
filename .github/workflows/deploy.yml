@@ -35,5 +35,4 @@ jobs:
         docker pull ${{secrets.DOCKERHUB_USERNAME}}/ems-app:latest
         docker stop ems-container || true
         docker rm ems-container || true
-        docker run -d -p 8080:8080 -e SPRING_DATASOURCE_URL = jdbc:postgresql://ems-db.cxw6iuu0cym1.ap-south-1.rds.amazonaws.com:5432/ems-db -e SPRING_DATASOURCE_USERNAME=postgres 
-        -e SPRING_DATASOURCE_PASSWORD=Nazeeruddin --name ems-container ${{secrets.DOCKERHUB_USERNAME}}/ems-app:latest
+        docker run -d -p 8080:8080 -e SPRING_DATASOURCE_URL=jdbc:postgresql://ems-db.cxw6iuu0cym1.ap-south-1.rds.amazonaws.com:5432/ems-db -e SPRING_DATASOURCE_USERNAME=postgres -e SPRING_DATASOURCE_PASSWORD=Nazeeruddin --name ems-container ${{ secrets.DOCKERHUB_USERNAME }}/ems-app:latest
